@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Reflection;
 using System.Threading.Tasks;
 using MethodTimer;
 
@@ -27,6 +28,8 @@ namespace MethodTimerSample
             {
 
             }
+
+            Console.ReadKey();
         }
 
         [Time]
@@ -49,7 +52,7 @@ namespace MethodTimerSample
             finally
             {
                 sw.Stop();
-                Trace.WriteLine($"Program.AsyncDelayWithTimer {sw.Elapsed.TotalMilliseconds}ms");
+                MethodTimeLogger.Log(MethodBase.GetCurrentMethod(), sw.ElapsedMilliseconds, "");
             }
 
         }
