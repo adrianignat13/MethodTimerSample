@@ -18,6 +18,15 @@ namespace MethodTimerSample
             {
 
             }
+
+            try
+            {
+                AsyncDelayWithTimer().Wait();
+            }
+            catch
+            {
+
+            }
         }
 
         [Time]
@@ -40,7 +49,7 @@ namespace MethodTimerSample
             finally
             {
                 sw.Stop();
-                Trace.WriteLine($"Program.AsyncDelayWithTimer {sw.Elapsed}ms");
+                Trace.WriteLine($"Program.AsyncDelayWithTimer {sw.Elapsed.TotalMilliseconds}ms");
             }
 
         }
